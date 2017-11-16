@@ -1,32 +1,43 @@
 //Program that calculates the Collatz conjecture
 import java.util.*;
 import java.io.*;
+import java.math.BigInteger;
 public class collatz
 {
       public static void main(String[] args)
       {
-            long x;
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter a number...");
-            x = input.nextInt();  //Sets x equal to user input
-            collatz(x);  //Calls collatz method to do actual calculations
+            //BigInteger max = new BigInteger("5000000000");
+            long max = 1000000000;
+            collatz(max);  //Calls collatz method to do actual calculations
       }
-      static int collatz(long x)
+      static void collatz(long max)
       {
-            int count = 0;
-            while(x != 1)
+            //BigInteger i = new BigInteger();
+            //BigInteger largest = new BigInteger("1");
+            long largest = 1;
+            int largecount = 1;
+            for(long i = 2; i < max; i++)
             {
-                  if(x % 2 == 1)
+                  int count = 1;
+                  long x = i;
+                  while(x != 1)
                   {
-                        x = (x * 3) + 1;
+                        if(x % 2 == 1)
+                        {
+                              x = (x * 3) + 1;
+                        }
+                        else
+                        {
+                              x = x / 2;
+                        }
+                        count++;
                   }
-                  else
+                  if(count > largecount)
                   {
-                        x = x / 2;
+                        largecount = count;
+                        largest = i;
                   }
-                  count++;
-                  System.out.println("Number: " + x + " Sequence: " + count);
+                  System.out.println(largest + "   " + largecount);
             }
-            return count;
       }
 }
