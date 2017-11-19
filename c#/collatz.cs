@@ -6,26 +6,35 @@ public class CollatzConjecture
 {
       static public void Main()
       {
-            Console.WriteLine("Enter a number...");
-            long x = Convert.ToInt64(Console.ReadLine());  //Converts user input to int
-            collatz(x);  //Calls collatz method
+            long max = 5000000000;
+            collatz(max);  //Calls collatz method
       }
-      static int collatz(long x)
+      static void collatz(long max)
       {
-            int count = 0;
-            while(x != 1)
+            long largest = 1;
+            int largecount = 1;
+            for(long i = 2; i < max; i++)
             {
-                  if(x % 2 == 1)  //If number is odd
+                  int count = 0;
+                  long x = i;
+                  while(x != 1)
                   {
-                        x = (x * 3) + 1;
+                        if(x % 2 == 1)  //If number is odd
+                        {
+                              x = (x * 3) + 1;
+                        }
+                        else  //When number is even
+                        {
+                              x = x / 2;
+                        }
+                        count++;
                   }
-                  else  //When number is even
+                  if(count > largecount)
                   {
-                        x = x / 2;
+                        largecount = count;
+                        largest = i;
                   }
-                  count++;
-                  Console.WriteLine("X: " + x + "    Sequence: " + count);
+                  Console.WriteLine(largest + "   " + largecount);
             }
-            return count;
       }
 }
