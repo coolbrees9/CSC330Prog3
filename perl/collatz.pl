@@ -3,24 +3,29 @@
 
 use POSIX;
 
-print("Enter a number...\n");
-my $x = <STDIN>;  #Gets user input
-if($x <= 1)
+$max = 5000000000;
+$largest = 1;
+$largecount = 1;
+for($i = 2; $i < $max; $i++)
 {
-      print("Invalid number\n");
-      exit
-}
-$count = 0;
-while($x > 1)
-{
-      if($x % 2 == 1)  #Odd number
+      $count = 0;
+      $x = $i;
+      while($x > 1)
       {
-            $x = ($x * 3) + 1;
+            if($x % 2 == 1)  #Odd number
+            {
+                  $x = ($x * 3) + 1;
+            }
+            else  #Even number
+            {
+                  $x = $x / 2;
+            }
+            $count++;
       }
-      else  #Even number
+      if($count > $largecount)
       {
-            $x = $x / 2;
+            $largecount = $count;
+            $largest = $i;
       }
-      $count++;
-      print("X = $x   Sequence = $count\n");
+      print("$largest   $largecount\n");
 }
