@@ -3,28 +3,36 @@
 #include <iostream>
 using namespace std;
 
-int collatz(long x)
+static void collatz(long max)
 {
-      int count = 0;
-      while(x != 1)
+      long largest = 1;
+      int largecount = 1;
+      for(long i = 2; i < max; i++)
       {
-            if(x % 2 == 1)
+            int count = 1;
+            long x = i;
+            while(x != 1)
             {
-                  x = (x * 3) + 1;
+                  if(x % 2 == 1)
+                  {
+                        x = (x * 3) + 1;
+                  }
+                  else
+                  {
+                        x = x / 2;
+                  }
+                  count++;
             }
-            else
+            if(count > largecount)
             {
-                  x = x / 2;
+                  largecount = count;
+                  largest = i;
             }
-            count++;
-            printf("X: %d Sequence: %d\n", x, count);
+            printf("%d   %d \n", largest, largecount);
       }
-      return count;
 }
 int main(int argc, char *argv[])
 {
-      BigInteger x;
-      cout << "Enter a number... " << endl;
-      cin >> x;
-      collatz(x);
+      long max = 5000000000;
+      collatz(max);  //Calls collatz method to perform calculations
 }
