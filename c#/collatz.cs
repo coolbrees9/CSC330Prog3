@@ -33,8 +33,8 @@ public class CollatzConjecture
                   {
                         largecount = count;
                         largest = i;
+                        Console.WriteLine(largest + "   " + largecount);
                   }
-                  Console.WriteLine(largest + "   " + largecount);
             }
       }
 }
