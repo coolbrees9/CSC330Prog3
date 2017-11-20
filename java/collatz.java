@@ -36,8 +36,8 @@ public class collatz
                   {
                         largecount = count;
                         largest = i;
+                        System.out.println(largest + "   " + largecount);
                   }
-                  System.out.println(largest + "   " + largecount);
             }
       }
 }
