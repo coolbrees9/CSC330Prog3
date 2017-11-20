@@ -26,6 +26,6 @@ for($i = 2; $i < $max; $i++)
       {
             $largecount = $count;
             $largest = $i;
+            print("$largest   $largecount\n");
       }
-      print("$largest   $largecount\n");
 }
