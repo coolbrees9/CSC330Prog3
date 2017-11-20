@@ -27,8 +27,8 @@ static void collatz(long max)
             {
                   largecount = count;
                   largest = i;
+                  printf("%d   %d \n", largest, largecount);
             }
-            printf("%d   %d \n", largest, largecount);
       }
 }
 int main(int argc, char *argv[])
