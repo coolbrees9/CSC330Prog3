@@ -15,9 +15,9 @@ subroutine collatz(maxnum)
             counter = 1
             x = i
             do while(x.ne.1)
-                  if((mod(x,2)) == 1) then
+                  if((mod(x,2)) == 1) then  !Odd number
                         x = (x * 3) + 1
-                  else
+                  else  !Even number
                         x = x / 2
                   end if
                   counter = counter + 1
