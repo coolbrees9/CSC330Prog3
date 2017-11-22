@@ -8,7 +8,7 @@ Fortran: Compile- gfortran collatz.f90 Run- a.out
 
 Java: Compile- javac collatz.java Run- java collatz
 
-Julia:
+Julia: Compile and Run- julia -L collatz.jl
 
 Lisp: Compile and Run- collatz.lisp
 
