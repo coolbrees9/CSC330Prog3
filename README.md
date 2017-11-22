@@ -16,4 +16,4 @@ Perl: Compile and Run- collatz.pl
 
 Python: Compile and Run- collatz.py
 
-Ruby:
+Ruby: Compile and Run- collatz.rb
