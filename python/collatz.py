@@ -43,10 +43,10 @@ while maxnum != 0:
 for j in range(0,10):
       print numlist[j], countlist[j]
 print ""
-print "Sequence sorted by integer size"
+#print "Sequence sorted by integer size"
 #Sort function that sorts based on num size
-numlist.sort()
+#numlist.sort()
 #Sort function that sorts based on sequence size
-countlist.sort()
+#countlist.sort()
 for j in range(0,10):
       print numlist[j], countlist[j]
