@@ -9,7 +9,7 @@ $countlist = [0,0,0,0,0,0,0,0,0,0];
 while($max != 0)
 {
       $x = $max;
-      $duplicate = "false";
+      $duplicate = 0;
       $smallnum = 0;
       $smallcount = $countlist[0];
       $index = 0;
@@ -38,19 +38,19 @@ while($max != 0)
             #Check for duplicate sequence
             if($countlist[$i] == $count)
             {
-                  $duplicate = "true";
+                  $duplicate = 1;
                   $index = $i;
             }
       }
       $temp = $smallnum;
       #No duplicates and adds in sequence if sequence greater than current 
-      if($count > $countlist[$temp] and $duplicate == "false")
+      if($count > $countlist[$temp] and $duplicate == 0)
       {
             $numlist[$temp] = $max;
             $countlist[$temp] = $count;
       }
       #If duplicates adds the smaller number
-      if($max < $countlist[$index] and $duplicate == "true")
+      if($max < $countlist[$index] and $duplicate == 1)
       {
                   $numlist[$index] = $max;
       }
