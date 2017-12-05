@@ -11,8 +11,27 @@ struct list
       long count;
 }csequence[10];
 
-static void collatz(long max)
+static long collatz(long x)
 {
+      long counter = 0;
+      //Loop to do collatz
+      while(x != 1)
+      {
+            if(x % 2 == 1)
+            {
+                  x = (x * 3) + 1;
+            }
+            else
+            {
+                  x = x / 2;
+            }
+            counter++;
+      }
+      return counter;
+}
+int main(int argc, char *argv[])
+{
+      long max = 10000;
       while(max != 0)
       {
             long x = max;
@@ -20,20 +39,7 @@ static void collatz(long max)
             long smallnum = 0;
             long smallcount = csequence[0].count;
             long index = 0;
-            long count = 0;
-            //Loop to do collatz
-            while(x != 1)
-            {
-                  if(x % 2 == 1)
-                  {
-                        x = (x * 3) + 1;
-                  }
-                  else
-                  {
-                        x = x / 2;
-                  }
-                  count++;
-            }
+            long count = collatz(x);  //Calls collatz method to perform calculations
             for(int i = 0; i < 10; i++)
             {
                   //Updates if current sequence greater than previous sequence
@@ -72,9 +78,4 @@ static void collatz(long max)
       sort(csequence, csequence + 10, [](list x, list y){return x.num > y.num;});
       for(int j = 0; j < 10; j++)
             printf("%d  %d \n", csequence[j].num, csequence[j].count);
-}
-int main(int argc, char *argv[])
-{
-      long max = 10000;
-      collatz(max);  //Calls collatz method to perform calculations
 }
