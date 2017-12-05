@@ -2,7 +2,7 @@
 import java.util.*;
 import java.io.*;
 import java.math.BigInteger;
-public class collatz
+public class recursivecollatz
 {
       public class list
       {
@@ -63,20 +63,18 @@ public class collatz
       }
       static long collatz(long x)
       {
-            long counter = 0;
             //Loop to do collatz
             while(x != 1)
             {
                   if(x % 2 == 1)
                   {
-                        x = (x * 3) + 1;
+                        return 1 + collatz((x * 3) + 1);
                   }
                   else
                   {
-                        x = x / 2;
+                        return 1 + collatz(x / 2);
                   }
-                  counter++;
             }
-            return counter;
+            return x - 1;
       }  
 }
