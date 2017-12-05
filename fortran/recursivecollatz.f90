@@ -3,11 +3,12 @@ program main
       integer*16 :: maxnum
       integer*16, dimension(10) :: numlist
       integer*16, dimension(10) :: countlist
-      integer*16 :: x, smallcount, counter
+      integer*16 :: x, smallcount, counter, collatz
       integer*16 :: smallnum, indexnum, duplicate, temp
+      external collatz
       maxnum = 10000
-      !Zeroes out both arrays
-      do i = 1,10
+      !Zeroes out the 2 arrays
+      do i = 1, 10
             numlist(i) = 0
             countlist(i) = 0
       end do
@@ -18,15 +19,7 @@ program main
             smallnum = 1
             smallcount = countlist(1)
             indexnum = 1
-            counter = 0
-            do while(x.ne.1)
-                  if((mod(x,2)) == 1) then  !Odd number
-                        x = (x * 3) + 1
-                  else  !Even number
-                        x = x / 2
-                  end if
-                  counter = counter + 1
-            end do
+            counter = collatz(x) !Calls function collatz
             do i = 1, 10
                   !Updates if current sequence greater than previous
                   if(smallcount > countlist(i)) then
@@ -59,3 +52,15 @@ program main
             print *, numlist(j), "  ", countlist(j)
       end do
 end program main
+
+recursive integer(kind=16) function collatz(x) result(rcounter)
+            integer*16 :: x
+            if(x == 1) then
+                  rcounter = 0
+                  return
+            else if((mod(x,2)) == 1) then  !Odd number
+                  rcounter = collatz((x * 3) + 1) + 1
+            else  !Even number
+                  rcounter = collatz(x / 2) + 1
+            end if
+end function collatz
