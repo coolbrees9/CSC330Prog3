@@ -1,6 +1,16 @@
 #!/usr/bin/ruby
 #This program will run Collatz conjecture
 class Collatz
+      #Recursive method to do collatz
+      def collatz(x)
+            if(x != 1)
+                 0
+            elsif (x % 2 == 1)  #When odd number
+                  return 1 + collatz((x * 3) + 1)
+            else  #When even number
+                  return 1 + collatz(x / 2)
+            end
+      end
       maxnum= 10000
       numlist = [0,0,0,0,0,0,0,0,0,0]
       countlist = [0,0,0,0,0,0,0,0,0,0]
@@ -10,16 +20,7 @@ class Collatz
             smallnum = 0
             smallcount = countlist[0]
             index = 0
-            count = 0
-            #Loop to do collatz
-            while (x != 1) do
-                  if (x % 2 == 1)  #When odd number
-                        x= (x * 3) + 1
-                  else  #When even number
-                        x= x / 2
-                  end 
-                  count+= 1
-            end
+            count = Collatz.new.collatz(x)
             for i in 0..9
                   #Updates if current sequence greater than previous sequence
                   if(smallcount > countlist[i])
