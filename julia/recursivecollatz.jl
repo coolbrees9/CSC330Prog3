@@ -1,4 +1,15 @@
 #Program will run Collatz conjecture
+
+#Does recursive collatz
+function collatz(x)
+      if(x == 1)
+            return 0
+      elseif (x % 2 == 1)  #When odd number
+            return 1 + collatz((x * 3) + 1)
+      else  #When even number
+            return 1 + collatz(x / 2)
+      end 
+end
 maxnum= 10000
 numlist = [0,0,0,0,0,0,0,0,0,0]
 countlist = [0,0,0,0,0,0,0,0,0,0]
@@ -33,21 +44,7 @@ while (maxnum != 0)
       end
       maxnum-=1
 end
-println();
-#Sort function that sorts based on num size
-#numlist.sort()
-#Sort function that sorts based on sequence size
-#countlist.sort()
 for j = 1:10
       println(numlist[j],"  ", countlist[j])
-end
-function collatz(x)
-      if(x <= 1)
-            return
-      elseif (x % 2 == 1)  #When odd number
-            collatz((x * 3) + 1)
-      else  #When even number
-            collatz(x / 2)
-      end 
 end
 exit(0)
