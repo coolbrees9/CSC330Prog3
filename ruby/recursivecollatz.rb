@@ -3,8 +3,8 @@
 class Collatz
       #Recursive method to do collatz
       def collatz(x)
-            if(x != 1)
-                 0
+            if(x == 1)
+                 return 0
             elsif (x % 2 == 1)  #When odd number
                   return 1 + collatz((x * 3) + 1)
             else  #When even number
