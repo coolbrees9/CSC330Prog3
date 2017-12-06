@@ -49,15 +49,6 @@ public class collatz
                         numlist[index] = max;
                   max--;
             }
-            //System.out.println("Sequence sorted by sequence length");
-            //Sort function to sort based on sequence length 
-            //sort(csequence,csequence + 10,[] (list x, list y){return x.count > y.count;});
-            for(int j = 0; j < 10; j++)
-                  System.out.println(numlist[j] + "  " + countlist[j]);
-            System.out.println();
-            //System.out.println("Sequence sorted by integer size");
-            //Sort function that sorts based on num size
-            //sort(csequence, csequence + 10, [](list x, list y){return x.num > y.num;});
             for(int j = 0; j < 10; j++)
                   System.out.println(numlist[j] + "  " + countlist[j]);
       }
