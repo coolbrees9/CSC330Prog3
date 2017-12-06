@@ -8,17 +8,8 @@ while (maxnum != 0)
       smallnum = 1
       smallcount = countlist[1]
       index = 1
-      counter = 0
-      #Loop to do collatz
-      while (x != 1)
-            if (x % 2 == 1)  #When odd number
-                  x= (x * 3) + 1
-            else  #When even number
-                  x= x / 2
-            end 
-            counter+= 1
-     end
-     for i = 1:10
+      counter = collatz(x)
+      for i = 1:10
             #Updates if current sequence greater than previous sequence
             if(smallcount > countlist[i])
                   smallcount = countlist[i]
@@ -49,5 +40,14 @@ println();
 #countlist.sort()
 for j = 1:10
       println(numlist[j],"  ", countlist[j])
+end
+function collatz(x)
+      if(x <= 1)
+            return
+      elseif (x % 2 == 1)  #When odd number
+            collatz((x * 3) + 1)
+      else  #When even number
+            collatz(x / 2)
+      end 
 end
 exit(0)
