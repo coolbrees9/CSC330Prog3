@@ -47,10 +47,6 @@ program main
       do j = 1,10
             print *, numlist(j), "  ", countlist(j)
       end do
-      print *
-      do j = 1,10
-            print *, numlist(j), "  ", countlist(j)
-      end do
 end program main
 
 recursive integer(kind=16) function collatz(x) result(rcounter)
