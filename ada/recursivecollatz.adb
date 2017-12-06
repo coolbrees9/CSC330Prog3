@@ -2,7 +2,18 @@
 with Ada.Text_IO,Ada.IO_Exceptions,Ada.Integer_Text_IO,Ada.Float_Text_IO;
 use Ada.Text_IO,Ada.IO_Exceptions,Ada.Integer_Text_IO,Ada.Float_Text_IO;
 
-procedure collatz is
+procedure recursivecollatz is
+--Recursive method to do collatz
+function steps(x : long_Integer) return long_Integer is
+begin
+      if(x = 1) then
+            return 0; 
+      elsif(x mod 2 = 1) then  --Odd number
+            return 1 + steps((x * 3) + 1);
+      else  --Even number
+            return 1 + steps(x / 2);
+      end if;
+end steps;
 maxnum : long_Integer := 10000;
 numlist : array (1..10) of long_Integer; 
 countlist : array (1..10) of long_Integer;
@@ -19,16 +30,7 @@ begin
             smallnum := 1;
             smallcount := countlist(1);
             indexnum := 1;
-            counter := 0;
-            --Loop that does collatz
-            while(x /= 1) loop
-                  if(x mod 2 = 1) then  --Odd number
-                        x := (x * 3) + 1;
-                  else  --Even number
-                        x := x / 2;
-                  end if;
-                  counter := counter + 1;
-            end loop;
+            counter := steps(x);           
             for i in 1..10 loop
                   --Updates if current sequence greater than previous
                   if(smallcount > countlist(i)) then
@@ -58,4 +60,4 @@ begin
             Put("  ");
             Put_Line(Item=> Long_Integer'Image(countlist(j)));
       end loop;
-end collatz;
+end recursivecollatz;
