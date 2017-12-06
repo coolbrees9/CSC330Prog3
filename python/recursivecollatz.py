@@ -4,16 +4,14 @@
 import sys
 import math
 
+#Recursive collatz method
 def collatz(x):
-      counter = 0
-      #Loop to do collatz
-      while x != 1:
-            if x % 2 == 1:  #When odd number
-                  x= (x * 3) + 1
-            else:  #When even number
-                  x= x / 2
-            counter+= 1
-      return counter;
+      if x == 1:
+            return 0;
+      elif x % 2 == 1:  #When odd number
+            return 1 + collatz((x * 3) + 1)
+      else:  #When even number
+            return 1 + collatz(x / 2)
 
 maxnum= 10000
 csequence = []
