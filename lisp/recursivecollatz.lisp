@@ -1,6 +1,18 @@
 #!/usr/bin/sbcl --script
 ;This program will run Collatz conjecture
 
+(defvar recounter)
+;Recursive method to do collatz
+(defun collatz(x)
+      (setf recounter 0)
+      (cond ((eq x 1) (return-from collatz 0))
+            ((eq (mod x 2) 1) (setf recounter (collatz(+ (* x 3) 1))))  ;Odd number
+            (t (setf recounter (collatz(/ x 2))))  ;Even number
+      )
+      (setf recounter (+ 1 recounter))
+      (return-from collatz recounter)
+)
+
 (defvar maxnum)
 (defvar temp)
 (defvar numlist)
@@ -20,15 +32,7 @@
             (setf smallnum  0)
             (setf smallcount (aref countlist 0))
             (setf index 0)
-            (setf counter 0)
-            ;Loop to do collatz
-            (loop while (/= x 1) do
-                  (if (eq (mod x 2) 1)  ;Odd number
-                        (setf x (+ (* x 3) 1))
-                        (setf x (/ x 2))  ;Even number
-                  )
-                  (setf counter (+ counter 1))
-            )
+            (setf counter (collatz x))           
             (loop for i from 0 to 9 do
                   ;Updates if current sequence greater than previous sequence
                   (if (> smallcount (aref countlist i))
