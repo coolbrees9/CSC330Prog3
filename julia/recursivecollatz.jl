@@ -10,7 +10,21 @@ function collatz(x)
             return 1 + collatz(x / 2)
       end 
 end
-maxnum= 10000
+function bubbleSort(numlist, countlist)  #Method that does bubblesort
+      for x = 1:10
+            for y = 1:10-x
+                  if(numlist[y] < numlist[y + 1])
+                        swapNum = numlist[y]
+                        numlist[y] = numlist[y + 1]
+                        numlist[y + 1] = swapNum
+                        swapCount = countlist[y]
+                        countlist[y] = countlist[y + 1]
+                        countlist[y + 1] = swapCount
+                  end
+            end
+      end
+end
+maxnum = 10000
 numlist = [0,0,0,0,0,0,0,0,0,0]
 countlist = [0,0,0,0,0,0,0,0,0,0]
 while (maxnum != 0)
@@ -44,6 +58,8 @@ while (maxnum != 0)
       end
       maxnum-=1
 end
+bubbleSort(numlist, countlist)
+println("Sequence sorted by integer size")
 for j = 1:10
       println(numlist[j],"  ", countlist[j])
 end

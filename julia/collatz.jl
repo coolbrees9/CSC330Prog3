@@ -1,4 +1,18 @@
 #Program will run Collatz conjecture
+function bubbleSort(numlist, countlist)  #Method that does bubblesort
+      for x = 1:10
+            for y = 1:10-x
+                  if(numlist[y] < numlist[y + 1])
+                        swapNum = numlist[y]
+                        numlist[y] = numlist[y + 1]
+                        numlist[y + 1] = swapNum
+                        swapCount = countlist[y]
+                        countlist[y] = countlist[y + 1]
+                        countlist[y + 1] = swapCount
+                  end
+            end
+      end
+end
 maxnum= 10000
 numlist = [0,0,0,0,0,0,0,0,0,0]
 countlist = [0,0,0,0,0,0,0,0,0,0]
@@ -42,11 +56,8 @@ while (maxnum != 0)
       end
       maxnum-=1
 end
-println();
-#Sort function that sorts based on num size
-#numlist.sort()
-#Sort function that sorts based on sequence size
-#countlist.sort()
+bubbleSort(numlist, countlist)
+println("Sequence sorted by integer size")
 for j = 1:10
       println(numlist[j],"  ", countlist[j])
 end
