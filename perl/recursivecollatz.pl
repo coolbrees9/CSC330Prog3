@@ -44,6 +44,8 @@ while($max != 0)
       }
       $max--;
 }
+bubbleSort($numlist, $countlist);
+print("Sequence sorted by integer size\n");
 for($j = 0; $j < 10; $j++)
 {
       print("$numlist[$j]  $countlist[$j]\n");
@@ -65,4 +67,25 @@ sub collatz
             }
       }
       return $counter;
+}
+
+sub bubbleSort  #Method that does bubblesort
+{
+            $numlist = $_[0];
+            $countlist = $_[1];
+            for($x = 0; $x < 10; $x++)
+            {
+                  for($y = 0; $y < 9 - $x; $y++)
+                  {
+                        if($numlist[$y] < $numlist[$y + 1]) 
+                        {
+                              $swapNum = $numlist[$y];
+                              $numlist[$y] = $numlist[$y + 1];
+                              $numlist[$y + 1] = $swapNum;
+                              $swapCount = $countlist[$y];
+                              $countlist[$y] = $countlist[$y + 1];
+                              $countlist[$y + 1] = $swapCount;
+                        }
+                  }
+            }
 }
