@@ -7,8 +7,8 @@ C#: Without recursion: Compile- mcs collatz.cs Run- mono collatz.exe
 C++: Without recursion: Compile- c++ collatz.cpp Run- a.out
      With recursion: Compile- c++ recursivecollatz.cpp Run- a.out
 
-Fortran: Without recursion: Compile- gfortran collatz.f90 Run- a.out
-         With recursion: Compile- gfortran recursivecollatz.f90 Run- a.out
+Fortran: Without recursion: Compile- gfortran -w collatz.f90 Run- a.out
+         With recursion: Compile- gfortran -w recursivecollatz.f90 Run- a.out
 
 Java: Without recursion: Compile- javac collatz.java Run- java collatz
       With recursion: Compile- javac recursivecollatz.java Run- java recursivecollatz
