@@ -44,6 +44,29 @@ while($max != 0)
       }
       $max--;
 }
+#Method call that does bubblesort
+for($x = 0; $x < 10; $x++)
+{
+      for($y = 0; $y < 9 - $x; $y++)
+      {
+            if($countlist[$y] < $countlist[$y + 1]) 
+            {
+                  $swapCount = $countlist[$y];
+                  $countlist[$y] = $countlist[$y + 1];
+                  $countlist[$y + 1] = $swapCount;
+                  $swapNum = $numlist[$y];
+                  $numlist[$y] = $numlist[$y + 1];
+                  $numlist[$y + 1] = $swapNum;
+            }
+      }
+}
+print("Sequence sorted by sequence length\n");
+for($j = 0; $j < 10; $j++)
+{
+      print("$numlist[$j]  $countlist[$j]\n");
+}
+print("\n");
+#Method call that does bubblesort
 bubbleSort($numlist, $countlist);
 print("Sequence sorted by integer size\n");
 for($j = 0; $j < 10; $j++)
