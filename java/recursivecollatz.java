@@ -49,6 +49,11 @@ public class recursivecollatz
                         numlist[index] = max;
                   max--;
             }
+            bubbleSort(countlist, numlist);
+            System.out.println("Sequence sorted by sequence length");
+            for(int j = 0; j < 10; j++)
+                  System.out.println(numlist[j] + "  " + countlist[j]);
+            System.out.println();
             bubbleSort(numlist, countlist);
             System.out.println("Sequence sorted by integer size");
             for(int j = 0; j < 10; j++)
