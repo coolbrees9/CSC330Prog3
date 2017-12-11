@@ -44,12 +44,12 @@ while maxnum != 0:
       maxnum-=1
 print "Sequence sorted by sequence length"
 #Sort function that sorts based on sequence size
-numc = sorted(csequence, key = lambda tup: tup[0])[::-1]
+numc = sorted(csequence, key = lambda tup: tup[1])[::-1]
 for j in range(0,10):
       print numc[j][0], "  ", numc[j][1]
 print ""
 print "Sequence sorted by integer size"
 #Sort function that sorts based on num size
-length = sorted(csequence, key = lambda tup: tup[1])[::-1]
+length = sorted(csequence, key = lambda tup: tup[0])[::-1]
 for j in range(0,10):
       print length[j][0], " ", length[j][1]

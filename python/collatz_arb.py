@@ -15,7 +15,7 @@ def collatz(x):
             counter+= 1
       return counter;
 
-maxnum = 10000
+maxnum= 1000000000000000
 csequence = []
 for i in range(0, 10):
       csequence.append((i,collatz(maxnum)))
@@ -45,7 +45,7 @@ while maxnum != 0:
             csequence[index] = (maxnum, count)
       maxnum-=1
 print "Sequence sorted by sequence length"
-#Sort function that sorts based on count size
+#Sort function that sorts based on sequence size
 numc = sorted(csequence, key = lambda tup: tup[1])[::-1]
 for j in range(0,10):
       print numc[j][0], "  ", numc[j][1]
