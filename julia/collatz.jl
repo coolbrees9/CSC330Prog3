@@ -56,6 +56,14 @@ while (maxnum != 0)
       end
       maxnum-=1
 end
+#Method to do bubblesort
+bubbleSort(countlist, numlist)
+println("Sequence sorted by sequence length")
+for j = 1:10
+      println(numlist[j],"  ", countlist[j])
+end
+println("")
+#Method to do bubblesort
 bubbleSort(numlist, countlist)
 println("Sequence sorted by integer size")
 for j = 1:10
