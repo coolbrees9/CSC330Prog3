@@ -5,12 +5,12 @@ class Collatz
             for x in 0..9
                   for y in 0..(8-x)
                         if(numlist[y] < numlist[y + 1]) 
-                              swapNum = numlist[y];
-                              numlist[y] = numlist[y + 1];
-                              numlist[y + 1] = swapNum;
-                              swapCount = countlist[y];
-                              countlist[y] = countlist[y + 1];
-                              countlist[y + 1] = swapCount;
+                              swapNum = numlist[y]
+                              numlist[y] = numlist[y + 1]
+                              numlist[y + 1] = swapNum
+                              swapCount = countlist[y]
+                              countlist[y] = countlist[y + 1]
+                              countlist[y + 1] = swapCount
                         end
                   end
             end
