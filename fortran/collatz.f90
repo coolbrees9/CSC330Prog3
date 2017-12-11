@@ -51,6 +51,38 @@ program main
             end if
             maxnum = maxnum - 1
       end do
+      print *, "Sequence sorted by sequence length"
+      !Bubblesorts the arrays
+            do x = 1, 10                              
+                  do y = 1, 10-x
+                        if(countlist(y) < countlist(y + 1)) then
+                              swapCount = countlist(y)
+                              countlist(y) = countlist(y + 1)
+                              countlist(y + 1) = swapCount
+                              swapNum = numlist(y)
+                              numlist(y) = numlist(y + 1)
+                              numlist(y + 1) = swapNum
+                        end if
+                  end do
+            end do
+      do j = 1,10
+            print *, numlist(j), "  ", countlist(j)
+      end do
+      print *,""
+      print *, "Sequence sorted by integer size"
+      !Bubblesorts the arrays
+            do x = 1, 10                              
+                  do y = 1, 10-x
+                        if(numlist(y) < numlist(y + 1)) then
+                              swapNum = numlist(y)
+                              numlist(y) = numlist(y + 1)
+                              numlist(y + 1) = swapNum
+                              swapCount = countlist(y)
+                              countlist(y) = countlist(y + 1)
+                              countlist(y + 1) = swapCount
+                        end if
+                  end do
+            end do
       do j = 1,10
             print *, numlist(j), "  ", countlist(j)
       end do
