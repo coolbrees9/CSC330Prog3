@@ -4,11 +4,6 @@ import java.io.*;
 import java.math.BigInteger;
 public class collatz
 {
-      public class list
-      {
-            long num;
-            long count;
-      }
       public static void main(String[] args)
       {
             long max = 10000;
@@ -49,6 +44,8 @@ public class collatz
                         numlist[index] = max;
                   max--;
             }
+            bubbleSort(numlist, countlist);
+            System.out.println("Sequence sorted by integer size");
             for(int j = 0; j < 10; j++)
                   System.out.println(numlist[j] + "  " + countlist[j]);
       }
@@ -70,4 +67,18 @@ public class collatz
             }
             return counter;
       }  
+      static void bubbleSort(long numlist[], long countlist[])  //Method that does bubblesort
+      {
+            for (int x = 0; x < 10; x++) 
+                  for (int y = 0; y < 9 - x; y++) 
+                        if(numlist[y] < numlist[y + 1]) 
+                        {
+                              long swapNum = numlist[y];
+                              numlist[y] = numlist[y + 1];
+                              numlist[y + 1] = swapNum;
+                              long swapCount = countlist[y];
+                              countlist[y] = countlist[y + 1];
+                              countlist[y + 1] = swapCount;
+                        }
+     }
 }
