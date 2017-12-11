@@ -83,6 +83,14 @@
             )
             (setf maxnum (- maxnum 1))
       )
+      ;Method to do bubblesort
+      (bubbleSort countlist numlist)
+      (format t "Sequence sorted by sequence length ~%")
+      (loop for j from 0 to 9 do
+            (format t "~,2d  ~,2d ~%" (aref numlist j) (aref countlist j))
+      )
+      (terpri)
+      ;Method to do bubblesort
       (bubbleSort numlist countlist)
       (format t "Sequence sorted by integer size ~%")
       (loop for j from 0 to 9 do
