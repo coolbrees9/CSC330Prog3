@@ -14,6 +14,7 @@ begin
             return 1 + steps(x / 2);
       end if;
 end steps;
+swapNum, swapCount : long_Integer;
 maxnum : long_Integer := 10000;
 numlist : array (1..10) of long_Integer; 
 countlist : array (1..10) of long_Integer;
@@ -55,6 +56,53 @@ begin
             end if;
             maxnum := maxnum - 1;
       end loop;
+      --Loop that will bubblesort arrays
+      for x in 0..10 loop
+            for y in 1..9-x loop
+                  if(numlist(y) < numlist(y + 1)) then
+                        swapNum := numlist(y);
+                        numlist(y) := numlist(y + 1);
+                        numlist(y + 1) := swapNum;
+                        swapCount := countlist(y);
+                        countlist(y) := countlist(y + 1);
+                        countlist(y + 1) := swapCount;
+                  end if;
+            end loop;
+      end loop;
+      --Loop that will bubblesort arrays
+      for x in 0..10 loop
+            for y in 1..9-x loop
+                  if(countlist(y) < countlist(y + 1)) then
+                        swapCount := countlist(y);
+                        countlist(y) := countlist(y + 1);
+                        countlist(y + 1) := swapCount;
+                        swapNum := numlist(y);
+                        numlist(y) := numlist(y + 1);
+                        numlist(y + 1) := swapNum;
+                  end if;
+            end loop;
+      end loop;
+      Put_Line("Sequence sorted by sequence length");
+      for j in 1..10 loop
+            Put(Item=> Long_Integer'Image(numlist(j)));
+            Put("  ");
+            Put_Line(Item=> Long_Integer'Image(countlist(j)));
+      end loop;
+      --Loop that will bubblesort arrays
+      for x in 0..10 loop
+            for y in 1..9-x loop
+                  if(numlist(y) < numlist(y + 1)) then
+                        swapNum := numlist(y);
+                        numlist(y) := numlist(y + 1);
+                        numlist(y + 1) := swapNum;
+                        swapCount := countlist(y);
+                        countlist(y) := countlist(y + 1);
+                        countlist(y + 1) := swapCount;
+                  end if;
+            end loop;
+      end loop;
+      Put_Line("");
+      Put_Line("Sequence sorted by integer size");
       for j in 1..10 loop
             Put(Item=> Long_Integer'Image(numlist(j)));
             Put("  ");
