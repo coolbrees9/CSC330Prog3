@@ -58,6 +58,14 @@ class Collatz
             end
             maxnum-=1
       end
+      #Method call to do bubblesort
+      Collatz.new.bubbleSort(countlist, numlist)
+      print "Sequence sorted by sequence length\n"
+      for j in 0..9
+            print numlist[j],"  ", countlist[j],"\n"
+      end
+      print "\n"
+      #Method call to do bubblesort
       Collatz.new.bubbleSort(numlist, countlist)
       print "Sequence sorted by integer size\n"
       for j in 0..9
