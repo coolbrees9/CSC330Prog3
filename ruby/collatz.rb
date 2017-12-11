@@ -1,6 +1,20 @@
 #!/usr/bin/ruby
 #This program will run Collatz conjecture
 class Collatz
+      def bubbleSort(numlist, countlist)  #Method that does bubblesort
+            for x in 0..9
+                  for y in 0..(8-x)
+                        if(numlist[y] < numlist[y + 1]) 
+                              swapNum = numlist[y];
+                              numlist[y] = numlist[y + 1];
+                              numlist[y + 1] = swapNum;
+                              swapCount = countlist[y];
+                              countlist[y] = countlist[y + 1];
+                              countlist[y + 1] = swapCount;
+                        end
+                  end
+            end
+      end
       maxnum= 10000
       numlist = [0,0,0,0,0,0,0,0,0,0]
       countlist = [0,0,0,0,0,0,0,0,0,0]
@@ -44,6 +58,8 @@ class Collatz
             end
             maxnum-=1
       end
+      Collatz.new.bubbleSort(numlist, countlist)
+      print "Sequence sorted by integer size\n"
       for j in 0..9
             print numlist[j],"  ", countlist[j],"\n"
       end
