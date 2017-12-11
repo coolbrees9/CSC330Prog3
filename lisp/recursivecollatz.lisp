@@ -13,6 +13,26 @@
       (return-from collatz recounter)
 )
 
+(defvar swapNum)
+(defvar swapCount)
+;Method that does bubblesort
+(defun bubbleSort(numlist countlist)
+      (loop for x from 0 to 9 do
+            (loop for y from 0 to (- 8 x) do
+                  (if (< (aref numlist y)(aref numlist (+ y 1)))
+                  (progn
+                        (setf swapNum (aref numlist y))
+                        (setf (aref numlist y) (aref numlist (+ y 1)))
+                        (setf (aref numlist (+ y 1)) swapNum)
+                        (setf swapCount (aref countlist y))
+                        (setf (aref countlist y) (aref countlist (+ y 1)))
+                        (setf (aref countlist (+ y 1)) swapCount)
+                  )
+                  )
+            )
+      )
+)
+
 (defvar maxnum)
 (defvar temp)
 (defvar numlist)
@@ -63,6 +83,8 @@
             )
             (setf maxnum (- maxnum 1))
       )
+      (bubbleSort numlist countlist)
+      (format t "Sequence sorted by integer size ~%")
       (loop for j from 0 to 9 do
             (format t "~,2d  ~,2d ~%" (aref numlist j) (aref countlist j))
       )
